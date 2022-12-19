@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:marvel_characters/cubit/cubit.dart';
-import 'package:marvel_characters/presentation/characters/widget/access_keys_input.dart';
+import 'package:marvel_characters/cubit/marvel_characters_cubit.dart';
+import 'package:marvel_characters/cubit/marvel_characters_state.dart';
+import 'access_keys_input.dart';
 
 class CharactersAppBar extends StatelessWidget {
   const CharactersAppBar({

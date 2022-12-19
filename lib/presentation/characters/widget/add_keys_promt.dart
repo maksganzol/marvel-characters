@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:marvel_characters/cubit/cubit.dart';
-import 'package:marvel_characters/presentation/characters/widget/access_keys_input.dart';
-import 'package:marvel_characters/presentation/characters/widget/cta_button.dart';
+import 'package:marvel_characters/cubit/marvel_characters_cubit.dart';
+import 'access_keys_input.dart';
+import 'cta_button.dart';
 
 class AddKeysPromt extends StatelessWidget {
   const AddKeysPromt({super.key});
@@ -26,7 +26,6 @@ class AddKeysPromt extends StatelessWidget {
           ),
           label: 'Add keys',
         ),
-        const SizedBox(height: 120),
       ],
     );
   }

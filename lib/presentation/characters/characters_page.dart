@@ -1,15 +1,13 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:marvel_characters/cubit/cubit.dart';
+import 'package:marvel_characters/cubit/marvel_characters_cubit.dart';
+import 'package:marvel_characters/cubit/marvel_characters_state.dart';
 import 'package:marvel_characters/di/service_locator.dart';
-import 'package:marvel_characters/models/character.dart';
-import 'package:marvel_characters/presentation/characters/widget/add_keys_promt.dart';
-import 'package:marvel_characters/presentation/characters/widget/characters_list.dart';
-import 'package:marvel_characters/router/router.dart';
-import 'package:marvel_characters/utils/iterable_join_with.dart';
-import 'widget/character_tile.dart';
+import 'widget/add_keys_promt.dart';
+import 'widget/characters_list.dart';
+import 'widget/error_message.dart';
+import 'widget/reload_button.dart';
 import 'widget/characters_app_bar.dart';
 
 class CharactersPage extends StatelessWidget {
@@ -58,15 +56,15 @@ class __CharactersScreenState extends State<_CharactersScreen> {
           return const Center(child: CircularProgressIndicator());
         }
         if (state.failure != null) {
-          return Center(child: Text(state.failure?.message ?? ''));
+          return ErrorMessage(message: state.failure?.message ?? '');
         }
         if (state.characters != null) {
           return CharactersList(characters: state.characters!);
         }
         if (state.accessKeys == null) {
-          return AddKeysPromt();
+          return const AddKeysPromt();
         }
-        return const Center(child: Text('Load data'));
+        return const Center(child: ReloadButton());
       },
     );
   }
