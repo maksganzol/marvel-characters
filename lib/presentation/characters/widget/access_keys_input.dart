@@ -62,7 +62,12 @@ class _AccessKeysInputState extends State<AccessKeysInput> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 24, right: 24, bottom: 48, top: 24),
+      padding: EdgeInsets.only(
+        left: 24,
+        right: 24,
+        top: 24,
+        bottom: MediaQuery.of(context).viewInsets.bottom != 0 ? 340 : 48,
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
